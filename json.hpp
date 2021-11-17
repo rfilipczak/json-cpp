@@ -19,32 +19,9 @@ namespace Json
     using String = std::string;
     using Number = double;
 
-    struct True
-    {
-        friend std::ostream& operator<<(std::ostream& out, const True& _true [[maybe_unused]])
-        {
-            out << "true";
-            return out;
-        }
-    };
-
-    struct False
-    {
-        friend std::ostream& operator<<(std::ostream& out, const False& _false [[maybe_unused]])
-        {
-            out << "false";
-            return out;
-        }
-    };
-
-    struct Null
-    {
-        friend std::ostream& operator<<(std::ostream& out, const Null& _null [[maybe_unused]])
-        {
-            out << "null";
-            return out;
-        }
-    };
+    struct True {};
+    struct False {};
+    struct Null {};
 
     class Object; // forward declare needed for recursive dependency
 
@@ -79,7 +56,7 @@ namespace Json
             }
         };
 
-        using Variant = std::variant<std::monostate, String, Number, recursive_wrapper<Object>, True, False, Null>;
+        using Variant = std::variant<std::monostate, String, Number, recursive_wrapper<Object>>;
 
         Variant variant;
         Type type;
@@ -111,21 +88,18 @@ namespace Json
         Data& operator=(const True& _true [[maybe_unused]])
         {
             type = Type::True;
-            variant = True{};
             return *this;
         }
 
         Data& operator=(const False& _false [[maybe_unused]])
         {
             type = Type::False;
-            variant = False{};
             return *this;
         }
 
         Data& operator=(const Null& _null [[maybe_unused]])
         {
             type = Type::Null;
-            variant = Null{};
             return *this;
         }
 
@@ -143,13 +117,13 @@ namespace Json
                     out << std::get<recursive_wrapper<Object>>(data.variant);
                     break;
                 case Type::True:
-                    out << std::get<True>(data.variant);
+                    out << "true";
                     break;
                 case Type::False:
-                    out << std::get<False>(data.variant);
+                    out << "false";
                     break;
                 case Type::Null:
-                    out << std::get<Null>(data.variant);
+                    out << "null";
                     break;
                 default:
                     assert(0 && "unreachable");
