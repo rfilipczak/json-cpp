@@ -19,9 +19,13 @@ namespace Json
     using String = std::string;
     using Number = double;
 
-    struct True {};
-    struct False {};
-    struct Null {};
+    struct True_ {};
+    struct False_ {};
+    struct Null_ {};
+
+    static const True_ True{};
+    static const False_ False{};
+    static const Null_ Null{};
 
     class Object; // forward declare needed for recursive dependency
 
@@ -85,19 +89,19 @@ namespace Json
             return *this;
         }
 
-        Data& operator=(const True& _true [[maybe_unused]])
+        Data& operator=(const True_& _true [[maybe_unused]])
         {
             type = Type::True;
             return *this;
         }
 
-        Data& operator=(const False& _false [[maybe_unused]])
+        Data& operator=(const False_& _false [[maybe_unused]])
         {
             type = Type::False;
             return *this;
         }
 
-        Data& operator=(const Null& _null [[maybe_unused]])
+        Data& operator=(const Null_& _null [[maybe_unused]])
         {
             type = Type::Null;
             return *this;

@@ -23,8 +23,9 @@ int main()
     root["children"][0] = joe;
     root["children"][1] = sara;
 
-    root["likes c++"] = Json::True{};
-    root["list of finished projects"] = Json::Null{};
+    root["likes c++"] = Json::True;
+    root["list of finished projects"] = Json::Null;
+    root["placeholder"] = Json::False;
 
     root.pretty_print();
 
