@@ -5,13 +5,13 @@ Simple json single-header-file-lib for c++20.
 ## Features
 
 * pretty print
-* get compact form
+* compact form
 
 ## Todo
 
-* Reading and parsing
+* reading and parsing
 
-## Requiremets
+## Requirements
 
 * g++
 * c++20
@@ -21,7 +21,6 @@ Simple json single-header-file-lib for c++20.
 
 ```c++
 #include "./json.hpp"
-
 
 int main()
 {
@@ -57,7 +56,10 @@ int main()
 ## Quickstart
 
 ```console
-$ make example
+$ mkdir cmake-build-debug
+$ cd cmake-build-debug
+$ cmake ..
+$ make
 $ ./example
 {
   "name": "Bob",
