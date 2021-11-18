@@ -9,6 +9,8 @@ add_compile_options(
         -Wall
         -Wextra
         -Wconversion
+        -Werror
+        -O3
 )
 
 add_executable(example example.cpp)
