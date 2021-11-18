@@ -15,7 +15,8 @@ Simple json single-header-file-lib for c++20.
 
 * g++
 * c++20
-* make
+* cmake
+* linux
 
 ## Example
 
