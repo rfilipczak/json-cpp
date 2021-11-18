@@ -1,31 +1,32 @@
 #include "./json.hpp"
 
-
 int main()
 {
     Json::Object root;
-    root["name"] = "Bob";
-    root["age"] = 44;
+    root["name"] = "Rafal";
+    root["age"] = 28;
 
     Json::Object address;
     address["planet"] = "Earth";
-
     root["address"] = address;
 
-    Json::Object joe;
-    joe["name"] = "Joe";
-    joe["age"] = 15;
+    Json::Object movie0;
+    movie0["tile"] = "Magnolia";
+    movie0["year"] = 1999;
 
-    Json::Object sara;
-    sara["name"] = "Sara";
-    sara["age"] = 13;
+    Json::Object movie1;
+    movie1["title"] = "Mulholland Dr.";
+    movie1["year"] = 2001;
 
-    root["children"][0] = joe;
-    root["children"][1] = sara;
+    root["favourite movies"][0] = movie0;
+    root["favourite movies"][1] = movie1;
 
-    root["likes c++"] = Json::True;
-    root["list of finished projects"] = Json::Null;
-    root["placeholder"] = Json::False;
+    Json::Object trivia;
+    trivia["likes c++"] = Json::True;
+    trivia["knows everything about programming"] = Json::False;
+    trivia["list of finished projects"] = Json::Null;
+
+    root += trivia;
 
     root.pretty_print();
 
