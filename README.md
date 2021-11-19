@@ -1,6 +1,7 @@
 # json-cpp
 
-Simple json single-header-file-lib for c++20.
+Simple json single-header-file-lib for c++20.  
+This is currently a pretty json format printer more than anything else.
 
 ## Features
 
